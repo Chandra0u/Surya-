@@ -162,22 +162,26 @@ button{
 <body>
 
 <script>
-const now = new Date();
-const unlockDate = new Date("2026-07-06T00:00:00");
+const today = new Date();
 
-if(now < unlockDate){
+// Surya's DOB: July 6, 2006
+// Website opens only on July 6 every year
+if (today.getDate() !== 6 || today.getMonth() + 1 !== 7) {
   document.body.innerHTML = `
     <div class="lock">
       <div class="lock-box">
-        <h1>🎁 Surprise Locked</h1>
-        <h2>Unlocks on <span style="color:yellow;">July 6, 2026</span> 🎂</h2>
+        <h1>🎁 Birthday Surprise Locked 🔒</h1>
+        <h2>Opens only on <span style="color:yellow;">July 6</span> 🎂</h2>
         <p style="font-size:20px;margin-top:15px;">
-          A special birthday surprise is waiting for Surya ❤️
+          This special surprise is made only for <b>Surya</b> ❤️
+        </p>
+        <p style="font-size:18px;margin-top:10px;">
+          Date of Birth: <b>06-07-2006</b> 🎉
         </p>
       </div>
     </div>
   `;
-  throw new Error("Website locked until July 6, 2026");
+  throw new Error("Locked until Surya's birthday");
 }
 </script>
 
@@ -222,7 +226,7 @@ if(now < unlockDate){
       <img src="photo5.jpg">
       <img src="photo6.jpg">
       <img src="photo7.jpg">
-      <img src="photo8.png">
+      <img src="photo8.jpg">
       <img src="photo9.jpg">
     </div>
 
