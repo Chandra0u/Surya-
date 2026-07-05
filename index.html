@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+    <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -6,46 +6,109 @@
 <title>🎂 Surya Birthday Surprise 🎂</title>
 
 <style>
+*{box-sizing:border-box;}
+
 body{
     margin:0;
     padding:20px;
     font-family:Arial,sans-serif;
     text-align:center;
-    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+    color:white;
+    background:linear-gradient(135deg,#12002b,#ff1493,#ff8c00,#00bfff);
+    background-size:400% 400%;
+    animation:bgMove 8s infinite alternate;
+    overflow-x:hidden;
 }
+
+@keyframes bgMove{
+    from{background-position:left;}
+    to{background-position:right;}
+}
+
 .container{
-    max-width:700px;
+    max-width:800px;
     margin:auto;
-    background:white;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 0 15px rgba(0,0,0,0.2);
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    padding:25px;
+    border-radius:25px;
+    box-shadow:0 0 40px gold;
+    border:3px solid rgba(255,255,255,0.5);
 }
+
+h2{
+    text-shadow:0 0 15px yellow;
+}
+
 input,button{
-    padding:10px 15px;
+    padding:12px 18px;
     font-size:16px;
     margin:10px;
     border:none;
-    border-radius:8px;
+    border-radius:25px;
 }
+
 button{
-    background:#ff4081;
+    background:linear-gradient(45deg,#ff1493,#ff8c00);
     color:white;
     cursor:pointer;
+    font-weight:bold;
+    box-shadow:0 0 20px yellow;
 }
-button:hover{background:#e73370;}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.photo-card{
+    margin:25px auto;
+    padding:15px;
+    border-radius:25px;
+    background:rgba(255,255,255,0.2);
+    box-shadow:0 0 25px #fff,0 0 40px #ff1493;
+    animation:photoGlow 2s infinite alternate;
+}
+
+@keyframes photoGlow{
+    from{box-shadow:0 0 15px white;}
+    to{box-shadow:0 0 35px yellow,0 0 60px hotpink;}
+}
+
 img{
     width:100%;
-    max-width:450px;
-    border-radius:12px;
+    max-width:500px;
+    border-radius:20px;
+    border:5px solid white;
 }
+
 video{
     width:100%;
-    max-width:500px;
-    border-radius:12px;
+    max-width:550px;
+    border-radius:20px;
     margin-top:20px;
+    border:5px solid white;
+    box-shadow:0 0 30px gold;
 }
-p{line-height:1.8;}
+
+p{
+    line-height:1.8;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.light{
+    position:fixed;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    animation:fall 5s linear infinite;
+    z-index:-1;
+}
+
+@keyframes fall{
+    from{top:-20px;}
+    to{top:110vh;}
+}
 </style>
 </head>
 
@@ -64,49 +127,48 @@ p{line-height:1.8;}
 
 <div id="gallery" style="display:none;">
     <h2>✨ Our Beautiful Memories ✨</h2>
-    <img id="photo" src="" alt="Memory Photo">
+    <div id="photosArea"></div>
 </div>
 
 <div id="finalMessage" style="display:none;">
 
-    <p style="color:#ff1493; font-size:28px; font-weight:bold;">
+    <p style="color:#ffff00; font-size:30px;">
         🎂✨ Happy Birthday, Surya! ✨🎂
     </p>
 
-    <p style="color:#ff8c00;">
+    <p style="color:#ffcc00;">
         🌞 From 6th class onwards, we have shared so many beautiful memories together.
         We studied in the same class during school and Intermediate.
         Even in B.Tech and hostel life, our friendship became stronger. 📚🏠❤️
     </p>
 
-    <p style="color:#1e90ff;">
+    <p style="color:#00ffff;">
         🤝 You are truly one of the most trusted friends in my life.
         I never want to lose you in my life. ❤️
     </p>
 
-    <p style="color:#32cd32;">
+    <p style="color:#7fff00;">
         💪 You stood by me in my hard situations, and I really can’t forget that.
         Thank you for always supporting me. 💙🙏
     </p>
 
-    <p style="color:#8a2be2;">
+    <p style="color:#ffb6ff;">
         💫 People may come and go, but I want you to stay forever.
         I hope our friendship remains strong for lifelong. 🤗💙
     </p>
 
-    <p style="color:#ff4500;">
+    <p style="color:#ffd700;">
         🎉 May your life be filled with happiness, success, good health,
         peace, love, smiles, and countless beautiful memories. 🌟🎊
     </p>
 
-    <p style="color:#dc143c; font-size:24px; font-weight:bold;">
+    <p style="color:#ff4444; font-size:24px;">
         🎁🎂 Happy Birthday Once Again, Surya! 🎂🎁
     </p>
 
     <h2>🎥 Our Special Video Memory</h2>
     <video controls>
-        <source src="surya.mp4" type="video/mp4">
-        Your browser does not support video.
+        <source src="birthday.mp4" type="video/mp4">
     </video>
 
     <br><br>
@@ -140,18 +202,23 @@ function checkBirthday(){
         document.getElementById("birthdayCheck").style.display = "none";
         document.getElementById("gallery").style.display = "block";
         showPhoto();
+        startLights();
     }else{
         alert("❌ Wrong Birthday Entered");
     }
 }
 
 function showPhoto(){
-    const photo = document.getElementById("photo");
-    photo.src = photos[index];
+    const photosArea = document.getElementById("photosArea");
 
-    photo.onerror = function(){
-        alert("Image not found: " + photos[index]);
-    };
+    const card = document.createElement("div");
+    card.className = "photo-card";
+
+    const img = document.createElement("img");
+    img.src = photos[index];
+
+    card.appendChild(img);
+    photosArea.appendChild(card);
 
     setTimeout(function(){
         index++;
@@ -159,10 +226,9 @@ function showPhoto(){
         if(index < photos.length){
             showPhoto();
         }else{
-            document.getElementById("gallery").style.display = "none";
             document.getElementById("finalMessage").style.display = "block";
         }
-    }, 2500);
+    }, 1800);
 }
 
 function showGift(){
@@ -175,6 +241,19 @@ function showGift(){
         "Forever Friends ❤️ — Yours, Chandra 🌙\n\n" +
         "Happy Birthday, Surya! 🎂🎉"
     );
+}
+
+function startLights(){
+    setInterval(()=>{
+        const light = document.createElement("div");
+        light.className = "light";
+        light.style.left = Math.random()*100 + "vw";
+        light.style.background = `hsl(${Math.random()*360},100%,60%)`;
+        light.style.boxShadow = "0 0 20px white";
+        document.body.appendChild(light);
+
+        setTimeout(()=>light.remove(),5000);
+    },150);
 }
 </script>
 
