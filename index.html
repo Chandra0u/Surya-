@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
@@ -6,7 +6,9 @@
 <title>🎂 Surya Birthday Surprise 🎂</title>
 
 <style>
-*{box-sizing:border-box;}
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
@@ -26,7 +28,7 @@ body{
 }
 
 .container{
-    max-width:800px;
+    max-width:850px;
     margin:auto;
     background:rgba(255,255,255,0.15);
     backdrop-filter:blur(10px);
@@ -36,8 +38,8 @@ body{
     border:3px solid rgba(255,255,255,0.5);
 }
 
-h2{
-    text-shadow:0 0 15px yellow;
+h1,h2{
+    text-shadow:0 0 18px yellow;
 }
 
 input,button{
@@ -65,7 +67,7 @@ button:hover{
     padding:15px;
     border-radius:25px;
     background:rgba(255,255,255,0.2);
-    box-shadow:0 0 25px #fff,0 0 40px #ff1493;
+    box-shadow:0 0 25px white,0 0 40px hotpink;
     animation:photoGlow 2s infinite alternate;
 }
 
@@ -76,24 +78,65 @@ button:hover{
 
 img{
     width:100%;
-    max-width:500px;
+    max-width:520px;
     border-radius:20px;
     border:5px solid white;
+}
+
+.message-box{
+    background:rgba(255,255,255,0.95);
+    color:#333;
+    padding:24px;
+    border-radius:22px;
+    margin-top:30px;
+    box-shadow:0 0 30px white;
+    text-align:left;
+}
+
+.message-box p{
+    font-size:18px;
+    line-height:1.9;
+    margin-bottom:18px;
+    font-weight:600;
+}
+
+.message-title{
+    text-align:center;
+    color:#ff1493;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.video-section{
+    margin-top:35px;
 }
 
 video{
     width:100%;
-    max-width:550px;
+    max-width:600px;
     border-radius:20px;
     margin-top:20px;
     border:5px solid white;
     box-shadow:0 0 30px gold;
+    background:black;
 }
 
-p{
-    line-height:1.8;
-    font-size:18px;
+.cake{
+    font-size:80px;
+    margin-top:35px;
+    animation:cakeGlow 1.5s infinite alternate;
+}
+
+@keyframes cakeGlow{
+    from{text-shadow:0 0 10px white;}
+    to{text-shadow:0 0 35px gold;}
+}
+
+.footer{
+    font-size:28px;
     font-weight:bold;
+    margin-top:35px;
+    text-shadow:0 0 20px pink;
 }
 
 .light{
@@ -109,6 +152,32 @@ p{
     from{top:-20px;}
     to{top:110vh;}
 }
+
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:25px;
+    animation:floatHeart 6s linear infinite;
+    z-index:10;
+}
+
+@keyframes floatHeart{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+
+.gift-box{
+    font-size:90px;
+    cursor:pointer;
+    animation:bounce 1.4s infinite;
+}
+
+@keyframes bounce{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-18px);}
+}
 </style>
 </head>
 
@@ -116,13 +185,19 @@ p{
 
 <div class="container">
 
-<h2>🎁 A Special Surprise Awaits 🎁</h2>
+<h1>🎁 A Special Surprise Awaits 🎁</h1>
 
 <div id="birthdayCheck">
-    <p>Enter Your Birthday:</p>
+    <p style="font-size:20px;">Enter Surya's Birthday:</p>
     <input type="date" id="bday">
     <br>
     <button onclick="checkBirthday()">Continue</button>
+</div>
+
+<div id="giftScreen" style="display:none;">
+    <h2>🎁 A Special Gift For Surya 🎁</h2>
+    <div class="gift-box" onclick="openGift()">🎁</div>
+    <p>Click the gift box to open your surprise ✨</p>
 </div>
 
 <div id="gallery" style="display:none;">
@@ -132,47 +207,47 @@ p{
 
 <div id="finalMessage" style="display:none;">
 
-    <p style="color:#ffff00; font-size:30px;">
-        🎂✨ Happy Birthday, Surya! ✨🎂
-    </p>
+    <div class="message-box">
+        <p class="message-title">🎂✨ Happy Birthday, Surya! ✨🎂</p>
 
-    <p style="color:#ffcc00;">
-        🌞 From 6th class onwards, we have shared so many beautiful memories together.
-        We studied in the same class during school and Intermediate.
-        Even in B.Tech and hostel life, our friendship became stronger. 📚🏠❤️
-    </p>
+        <p>🌞 From 6th class onwards, we have shared so many beautiful memories together. We studied in the same class during school and Intermediate. Even in B.Tech and hostel life, our friendship became stronger. 📚🏠❤️</p>
 
-    <p style="color:#00ffff;">
-        🤝 You are truly one of the most trusted friends in my life.
-        I never want to lose you in my life. ❤️
-    </p>
+        <p>🤝 You are truly one of the most trusted friends in my life. I never want to lose you in my life. ❤️</p>
 
-    <p style="color:#7fff00;">
-        💪 You stood by me in my hard situations, and I really can’t forget that.
-        Thank you for always supporting me. 💙🙏
-    </p>
+        <p>💪 You stood by me in my hard situations, and I really can’t forget that. Thank you for always supporting me. 💙🙏</p>
 
-    <p style="color:#ffb6ff;">
-        💫 People may come and go, but I want you to stay forever.
-        I hope our friendship remains strong for lifelong. 🤗💙
-    </p>
+        <p>💫 People may come and go, but I want you to stay forever. I hope our friendship remains strong for lifelong. 🤗💙</p>
 
-    <p style="color:#ffd700;">
-        🎉 May your life be filled with happiness, success, good health,
-        peace, love, smiles, and countless beautiful memories. 🌟🎊
-    </p>
+        <p>🎉 May your life be filled with happiness, success, good health, peace, love, smiles, and countless beautiful memories. 🌟🎊</p>
 
-    <p style="color:#ff4444; font-size:24px;">
-        🎁🎂 Happy Birthday Once Again, Surya! 🎂🎁
-    </p>
+        <p style="text-align:center;color:#dc143c;font-size:24px;font-weight:bold;">
+            🎁🎂 Happy Birthday Once Again, Surya! 🎂🎁
+        </p>
+    </div>
 
-    <h2>🎥 Our Special Video Memory</h2>
-    <video controls>
-        <source src="birthday.mp4" type="video/mp4">
-    </video>
+    <div class="video-section">
+        <h2>🎥 Our Special Video Memory 🎥</h2>
 
-    <br><br>
-    <button onclick="showGift()">Open Your Gift 🎁</button>
+        <video controls preload="metadata">
+            <source src="birthday.mp4" type="video/mp4">
+            Your browser does not support this video.
+        </video>
+
+        <p style="font-size:14px;">
+            If video is not playing, check file name: <b>birthday.mp4</b>
+        </p>
+    </div>
+
+    <div class="cake">🎂🕯️🕯️🕯️</div>
+
+    <h2>Make a wish, Surya ✨</h2>
+
+    <button onclick="showGift()">Open Your Final Gift 🎁</button>
+
+    <div class="footer">
+        Forever Friends ❤️ <br>
+        — Yours, Chandra 🌙
+    </div>
 
 </div>
 
@@ -200,12 +275,18 @@ function checkBirthday(){
 
     if(entered === correctBirthday){
         document.getElementById("birthdayCheck").style.display = "none";
-        document.getElementById("gallery").style.display = "block";
-        showPhoto();
+        document.getElementById("giftScreen").style.display = "block";
         startLights();
+        startHearts();
     }else{
-        alert("❌ Wrong Birthday Entered");
+        alert("❌ Wrong Birthday Entered. Please enter 06-07-2006");
     }
+}
+
+function openGift(){
+    document.getElementById("giftScreen").style.display = "none";
+    document.getElementById("gallery").style.display = "block";
+    showPhoto();
 }
 
 function showPhoto(){
@@ -216,6 +297,11 @@ function showPhoto(){
 
     const img = document.createElement("img");
     img.src = photos[index];
+    img.alt = "Surya Memory Photo";
+
+    img.onerror = function(){
+        alert("Image not found: " + photos[index]);
+    };
 
     card.appendChild(img);
     photosArea.appendChild(card);
@@ -227,6 +313,9 @@ function showPhoto(){
             showPhoto();
         }else{
             document.getElementById("finalMessage").style.display = "block";
+            document.getElementById("finalMessage").scrollIntoView({
+                behavior:"smooth"
+            });
         }
     }, 1800);
 }
@@ -244,18 +333,37 @@ function showGift(){
 }
 
 function startLights(){
-    setInterval(()=>{
+    setInterval(function(){
         const light = document.createElement("div");
         light.className = "light";
         light.style.left = Math.random()*100 + "vw";
         light.style.background = `hsl(${Math.random()*360},100%,60%)`;
         light.style.boxShadow = "0 0 20px white";
+        light.style.animationDuration = Math.random()*3 + 3 + "s";
         document.body.appendChild(light);
 
-        setTimeout(()=>light.remove(),5000);
+        setTimeout(function(){
+            light.remove();
+        },5000);
     },150);
+}
+
+function startHearts(){
+    setInterval(function(){
+        const heart = document.createElement("div");
+        heart.className = "heart";
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random()*100 + "vw";
+        heart.style.fontSize = Math.random()*25 + 20 + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(function(){
+            heart.remove();
+        },6000);
+    },700);
 }
 </script>
 
 </body>
 </html>
+
