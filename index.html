@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Surya 🎂</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif;}
+
+body{
+  background:linear-gradient(135deg,#12002b,#ff2e88,#ffb703);
+  color:white;
+  text-align:center;
+  overflow-x:hidden;
+}
+
+.lock{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#141e30,#243b55);
+  padding:20px;
+}
+
+.lock-box{
+  background:rgba(255,255,255,.15);
+  padding:35px;
+  border-radius:25px;
+  box-shadow:0 0 30px rgba(255,255,255,.3);
+}
+
+.gift-screen{
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+}
+
+.gift{
+  font-size:130px;
+  cursor:pointer;
+  animation:bounce 1.5s infinite;
+}
+
+@keyframes bounce{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-20px);}
+}
+
+.main{
+  display:none;
+  padding:30px 15px;
+}
+
+h1{
+  font-size:42px;
+  text-shadow:0 0 25px yellow;
+  margin-bottom:20px;
+}
+
+.card{
+  max-width:950px;
+  margin:auto;
+  background:rgba(255,255,255,.18);
+  padding:25px;
+  border-radius:30px;
+  box-shadow:0 0 35px rgba(0,0,0,.4);
+}
+
+.message{
+  font-size:20px;
+  line-height:1.8;
+  margin:20px 0;
+}
+
+.gallery{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+  gap:15px;
+  margin-top:25px;
+}
+
+.gallery img{
+  width:100%;
+  height:220px;
+  object-fit:cover;
+  border-radius:20px;
+  border:4px solid white;
+  box-shadow:0 0 20px rgba(0,0,0,.4);
+}
+
+.video-box{margin-top:40px;}
+
+video{
+  width:100%;
+  max-width:700px;
+  border-radius:20px;
+  margin-top:20px;
+  box-shadow:0 0 25px rgba(0,0,0,.5);
+  border:4px solid white;
+}
+
+.cake{
+  margin:40px auto;
+  font-size:90px;
+  animation:glow 1.5s infinite alternate;
+}
+
+@keyframes glow{
+  from{text-shadow:0 0 10px white;}
+  to{text-shadow:0 0 30px gold;}
+}
+
+.footer{
+  font-size:32px;
+  margin:40px 0;
+  font-weight:bold;
+  text-shadow:0 0 20px pink;
+}
+
+.confetti{
+  position:fixed;
+  top:-10px;
+  width:10px;
+  height:10px;
+  animation:fall 5s linear infinite;
+  z-index:999;
+}
+
+@keyframes fall{
+  to{transform:translateY(110vh) rotate(360deg);}
+}
+
+.heart{
+  position:fixed;
+  bottom:-20px;
+  font-size:25px;
+  animation:floatHeart 6s linear infinite;
+  z-index:999;
+}
+
+@keyframes floatHeart{
+  to{transform:translateY(-110vh);opacity:0;}
+}
+
+button{
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:gold;
+  font-size:18px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<script>
+const now = new Date();
+const unlockDate = new Date("2026-07-06T00:00:00");
+
+if(now < unlockDate){
+  document.body.innerHTML = `
+    <div class="lock">
+      <div class="lock-box">
+        <h1>🎁 Surprise Locked</h1>
+        <h2>Unlocks on <span style="color:yellow;">July 6, 2026</span> 🎂</h2>
+        <p style="font-size:20px;margin-top:15px;">
+          A special birthday surprise is waiting for Surya ❤️
+        </p>
+      </div>
+    </div>
+  `;
+  throw new Error("Website locked until July 6, 2026");
+}
+</script>
+
+<div class="gift-screen" id="giftScreen">
+  <h1>🎁 A Special Surprise For Surya 🎁</h1>
+  <div class="gift" onclick="openGift()">🎁</div>
+  <p>Click the gift to open your birthday surprise ✨</p>
+</div>
+
+<div class="main" id="mainContent">
+  <h1>🎂 Happy Birthday Surya 🎂</h1>
+
+  <button onclick="playMusic()">🎵 Play Birthday Music</button>
+
+  <div class="card">
+    <h2>💌 Dear Surya 💌</h2>
+
+    <div class="message">
+      Happy Birthday! 🥳🎂🎁<br><br>
+
+      You are truly my most trusted friend. ❤️  
+      I never want to lose you in my life.<br><br>
+
+      People may come and go, but I want you to stay forever. 🤝✨<br><br>
+
+      You stood by me in my hard situations, and I really can’t forget that. 💙<br><br>
+
+      From 6th class to Intermediate and B.Tech, we have shared so many beautiful memories together. 📚🎓<br><br>
+
+      I want you to be my lifelong friend. May your life be filled with happiness, success, love, smiles, and blessings. 🎇🌟<br><br>
+
+      Once again, Happy Birthday my dear friend! ❤️🎉
+    </div>
+
+    <h2>📸 Our Beautiful Memories</h2>
+
+    <div class="gallery">
+      <img src="photo1.jpg">
+      <img src="photo2.jpg">
+      <img src="photo3.jpg">
+      <img src="photo4.jpg">
+      <img src="photo5.jpg">
+      <img src="photo6.jpg">
+      <img src="photo7.jpg">
+      <img src="photo8.png">
+      <img src="photo9.jpg">
+    </div>
+
+    <div class="video-box">
+      <h2>🎥 Our Special Video Memory 🎥</h2>
+      <video controls>
+        <source src="memory.mp4" type="video/mp4">
+        Your browser does not support video.
+      </video>
+    </div>
+
+    <div class="cake">🎂🕯️🕯️🕯️</div>
+
+    <h2>Make a wish, Surya ✨</h2>
+
+    <div class="footer">
+      Forever Friends ❤️ <br>
+      — Yours, Chandra 🌙
+    </div>
+  </div>
+</div>
+
+<audio id="music" loop>
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+function openGift(){
+  document.getElementById("giftScreen").style.display = "none";
+  document.getElementById("mainContent").style.display = "block";
+  startConfetti();
+  startHearts();
+}
+
+function playMusic(){
+  document.getElementById("music").play();
+}
+
+function startConfetti(){
+  setInterval(()=>{
+    const c = document.createElement("div");
+    c.className = "confetti";
+    c.style.left = Math.random()*100 + "vw";
+    c.style.background = `hsl(${Math.random()*360},100%,50%)`;
+    c.style.animationDuration = Math.random()*3 + 3 + "s";
+    document.body.appendChild(c);
+    setTimeout(()=>c.remove(),5000);
+  },100);
+}
+
+function startHearts(){
+  setInterval(()=>{
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.innerHTML = "❤️";
+    h.style.left = Math.random()*100 + "vw";
+    h.style.fontSize = Math.random()*25 + 20 + "px";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),6000);
+  },600);
+}
+</script>
+
+</body>
+</html>
