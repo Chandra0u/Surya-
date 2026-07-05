@@ -1,18 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>🎂 Surya Birthday Surprise 🎂</title>
-<title>Happy Birthday Surya (Surii) 🎂</title>
 
-<meta name="description" content="A special birthday surprise website created for Surya (Surii) by Chandra.">
-
+<title>Happy Birthday Surya Surii 🎂 | Birthday Surprise</title>
+<meta name="description" content="A special colorful birthday surprise website created for Surya Surii by Chandra.">
 <meta name="keywords" content="Surya Birthday, Surii Birthday, Happy Birthday Surya, Birthday Surprise, Chandra">
+<meta name="author" content="Chandra">
+
 <style>
-*{
-    box-sizing:border-box;
-}
+*{box-sizing:border-box;}
 
 body{
     margin:0;
@@ -42,9 +40,7 @@ body{
     border:3px solid rgba(255,255,255,0.5);
 }
 
-h1,h2{
-    text-shadow:0 0 18px yellow;
-}
+h1,h2{text-shadow:0 0 18px yellow;}
 
 input,button{
     padding:12px 18px;
@@ -62,9 +58,7 @@ button{
     box-shadow:0 0 20px yellow;
 }
 
-button:hover{
-    transform:scale(1.05);
-}
+button:hover{transform:scale(1.05);}
 
 .photo-card{
     margin:25px auto;
@@ -111,9 +105,7 @@ img{
     font-weight:bold;
 }
 
-.video-section{
-    margin-top:35px;
-}
+.video-section{margin-top:35px;}
 
 video{
     width:100%;
@@ -166,10 +158,7 @@ video{
 }
 
 @keyframes floatHeart{
-    to{
-        transform:translateY(-110vh);
-        opacity:0;
-    }
+    to{transform:translateY(-110vh);opacity:0;}
 }
 
 .gift-box{
@@ -232,12 +221,12 @@ video{
     <div class="video-section">
         <h2>🎥 Our Special Video Memory 🎥</h2>
 
-        <video controls preload="metadata">
+        <video controls preload="metadata" playsinline>
             <source src="birthday.mp4" type="video/mp4">
             Your browser does not support this video.
         </video>
 
-        <p style="font-size:14px;">
+        <p style="font-size:14px;color:white;">
             If video is not playing, check file name: <b>birthday.mp4</b>
         </p>
     </div>
@@ -317,9 +306,7 @@ function showPhoto(){
             showPhoto();
         }else{
             document.getElementById("finalMessage").style.display = "block";
-            document.getElementById("finalMessage").scrollIntoView({
-                behavior:"smooth"
-            });
+            document.getElementById("finalMessage").scrollIntoView({behavior:"smooth"});
         }
     }, 1800);
 }
@@ -346,9 +333,7 @@ function startLights(){
         light.style.animationDuration = Math.random()*3 + 3 + "s";
         document.body.appendChild(light);
 
-        setTimeout(function(){
-            light.remove();
-        },5000);
+        setTimeout(function(){light.remove();},5000);
     },150);
 }
 
@@ -361,13 +346,10 @@ function startHearts(){
         heart.style.fontSize = Math.random()*25 + 20 + "px";
         document.body.appendChild(heart);
 
-        setTimeout(function(){
-            heart.remove();
-        },6000);
+        setTimeout(function(){heart.remove();},6000);
     },700);
 }
 </script>
 
 </body>
 </html>
-
